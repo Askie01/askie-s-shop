@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.askie01</groupId>
-    <artifactId>Servler_Hibernate_project</artifactId>
+    <artifactId>Servlet_Hibernate_project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Servlet Hibernate project</name>
     <packaging>war</packaging>
