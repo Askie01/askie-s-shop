@@ -22,12 +22,13 @@ public class UserRepository {
         logger.info("Successfully saved user: '{}'", user);
     }
 
-    public Optional<User> find(String username) {
+    public Optional<User> find(String username, String password) {
         final User user = new HibernateSessionFactory("hibernate.cfg.xml")
                 .getSessionFactory()
                 .openSession()
-                .createQuery("from User where username = :username", User.class)
+                .createQuery("from User where username = :username and password = :password", User.class)
                 .setParameter("username", username)
+                .setParameter("password", password)
                 .uniqueResult();
 
         if (user == null) {

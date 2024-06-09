@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         final UserRepository repository = new UserRepository();
         final User user = (User) request.getAttribute("user");
-        final Optional<User> optionalUser = repository.find(user.getUsername());
+        final Optional<User> optionalUser = repository.find(user.getUsername(), user.getPassword());
 
         if (optionalUser.isEmpty()) {
             repository.save(user);
