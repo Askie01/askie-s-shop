@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!--        Consoles configuration-->
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!--        Files configuration-->
+
+        <File name="RegisterFilterFile"
+              filename="${sys:LOG_PATH}/RegisterFilter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="RegisterServletFile"
+              filename="${sys:LOG_PATH}/RegisterServlet.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="UserValidatorFile"
+              filename="${sys:LOG_PATH}/UserValidator.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="DateValidatorFile"
+              filename="${sys:LOG_PATH}/DateValidator.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="UserRepositoryFile"
+              filename="${sys:LOG_PATH}/UserRepository.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+
+        <!--        File loggers-->
+
+        <Logger name="services.register.filters.RegisterFilter" level="info" additivity="false">
+            <AppenderRef ref="RegisterFilterFile"/>
+        </Logger>
+
+        <Logger name="services.register.RegisterServlet" level="info" additivity="false">
+            <AppenderRef ref="RegisterServletFile"/>
+        </Logger>
+
+        <Logger name="validators.UserValidator" level="info" additivity="false">
+            <AppenderRef ref="UserValidatorFile"/>
+        </Logger>
+
+        <Logger name="validators.DateValidator" level="info" additivity="false">
+            <AppenderRef ref="DateValidatorFile"/>
+        </Logger>
+
+        <Logger name="repositories" level="info" additivity="false">
+            <AppenderRef ref="UserRepositoryFile"/>
+        </Logger>
+
+        <!--        Root logger-->
+
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

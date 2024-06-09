@@ -42,7 +42,7 @@ body {
     margin-bottom: 20px;
 }
 
-.register-form {
+.login-form {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
@@ -53,12 +53,6 @@ body {
     text-align: left;
 }
 
-#password {
-    -webkit-text-security: disc; /* For Safari */
-    text-security: disc; /* For others that support it */
-}
-
-
 .input-group label {
     display: block;
     font-size: 18px;
@@ -67,11 +61,8 @@ body {
 }
 
 .input-group input[type="text"],
-.input-group input[type="password"],
-.input-group input[type="email"],
-.input-group input[type="date"],
-.input-group input[type="tel"] {
-    width: 100%;
+.input-group input[type="password"] {
+    width: 100%; /* Ustawienie szerokości na 100% */
     padding: 15px;
     font-size: 16px;
     border: none;
@@ -80,7 +71,7 @@ body {
 }
 
 .input-group input[type="submit"] {
-    width: 100%;
+    width: 100%; /* Ustawienie szerokości na 100% */
     padding: 15px;
     font-size: 16px;
     color: #fff;
