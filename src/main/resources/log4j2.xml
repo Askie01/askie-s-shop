@@ -64,7 +64,6 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
-
     </Appenders>
 
     <Loggers>
@@ -114,7 +113,6 @@
         <Logger name="validators.UserValidator" level="info" additivity="false">
             <AppenderRef ref="UserValidatorFile"/>
         </Logger>
-
 
         <!--        Root logger-->
 

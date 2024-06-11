@@ -9,6 +9,7 @@ target/
 *.iml
 *.ipr
 /src/main/resources/.env
+/logs/
 
 ### Eclipse ###
 .apt_generated
@@ -34,4 +35,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/logs/

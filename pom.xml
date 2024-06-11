@@ -82,7 +82,7 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        Dotenv configuration-->
+        <!--        Dotenv configuration-->
         <dependency>
             <groupId>io.github.cdimascio</groupId>
             <artifactId>dotenv-java</artifactId>
