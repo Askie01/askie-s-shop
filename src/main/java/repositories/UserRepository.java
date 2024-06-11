@@ -11,7 +11,7 @@ import users.User;
 import java.util.Optional;
 
 public class UserRepository {
-    private final Logger logger = LogManager.getLogger(UserRepository.class.getName());
+    private final Logger log = LogManager.getLogger(UserRepository.class.getName());
 
     public void save(User user) {
         final SessionFactory sessionFactory = new HibernateSessionFactory("hibernate.cfg.xml").getSessionFactory();
@@ -19,22 +19,22 @@ public class UserRepository {
         final Transaction transaction = session.beginTransaction();
         session.persist(user);
         transaction.commit();
-        logger.info("Successfully saved user: '{}'", user);
+        log.info("Successfully saved user: '{}'", user);
     }
 
-    public Optional<User> find(String username, String password) {
+    public Optional<User> find(String login, String password) {
         final User user = new HibernateSessionFactory("hibernate.cfg.xml")
                 .getSessionFactory()
                 .openSession()
-                .createQuery("from User where username = :username and password = :password", User.class)
-                .setParameter("username", username)
+                .createQuery("from User where login = :login and password = :password", User.class)
+                .setParameter("login", login)
                 .setParameter("password", password)
                 .uniqueResult();
 
         if (user == null) {
-            logger.warn("User '{}' not found", username);
+            log.warn("Can't find username: '{}'.'", login);
         } else {
-            logger.info("Found user: '{}'", user);
+            log.info("Found user: '{}'.", login);
         }
 
         return Optional.ofNullable(user);

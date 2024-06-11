@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import products.Product;
 import users.User;
 
 @Getter
@@ -20,7 +21,8 @@ public class HibernateSessionFactory {
     private SessionFactory createSessionFactory(String configurationFile) {
         final Configuration config = new Configuration()
                 .configure(configurationFile)
-                .addAnnotatedClass(User.class);
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Product.class);
 
         final ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(config.getProperties())

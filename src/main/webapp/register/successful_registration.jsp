@@ -16,9 +16,9 @@
 %>
 <div class="background"></div>
 <div class="content">
-    <h1>Twoje konto zostało utworzone!</h1>
-    <p>Kliknij w poniższy link, żeby się zalogować</p>
-    <a href="/Servlet_Hibernate_project_war_exploded/login/login.jsp" class="button">Zaloguj się</a>
+    <h1>Your account has been created!</h1>
+    <p>Click the link below to log in</p>
+    <a href="../login/login.jsp" class="button">Log in</a>
 </div>
 </body>
 </html>

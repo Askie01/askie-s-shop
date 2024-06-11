@@ -3,11 +3,17 @@ package validators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DateValidator {
-    private final Logger logger = LogManager.getLogger(DateValidator.class.getName());
+    private final Logger log = LogManager.getLogger(DateValidator.class.getName());
+
+    public boolean isValid(LocalDate date) {
+        final String dateString = date.toString();
+        return isValid(dateString);
+    }
 
     public boolean isValid(String dateString) {
         final String regex = "^(\\d{4})-(\\d{2})-(\\d{2})$";
@@ -20,12 +26,12 @@ public class DateValidator {
             int day = Integer.parseInt(matcher.group(3));
 
             if (isValidDate(year, month, day)) {
-                logger.info("'{}' is a valid date.", dateString);
+                log.info("Received valid date: '{}'.", dateString);
             } else {
-                logger.warn("'{}' is an invalid date (logical check failed).", dateString);
+                log.warn("Received an invalid date: '{}' (logical check failed).", dateString);
             }
         } else {
-            logger.warn("'{}' is an invalid date (regex check failed).", dateString);
+            log.warn("Received an invalid date: '{}' (regex check failed).", dateString);
         }
 
         return true;

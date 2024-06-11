@@ -15,8 +15,8 @@
     <div class="login-form">
         <form action="login" method="post">
             <div class="input-group">
-                <label for="username">USERNAME</label>
-                <input type="text" id="username" name="username">
+                <label for="login">LOGIN</label>
+                <input type="text" id="login" name="login">
             </div>
             <div class="input-group">
                 <label for="password">PASSWORD</label>
