@@ -12,22 +12,23 @@ import java.util.Optional;
 
 @WebServlet("/login/login")
 public class LoginServlet extends HttpServlet {
-    private final Logger logger = LogManager.getLogger(LoginServlet.class.getName());
+    private final Logger log = LogManager.getLogger(LoginServlet.class.getName());
 
     @SneakyThrows
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        final String username = request.getParameter("username");
+        final String login = request.getParameter("login");
         final String password = request.getParameter("password");
         final UserRepository repository = new UserRepository();
-        final Optional<User> userOptional = repository.find(username, password);
+        final Optional<User> userOptional = repository.find(login, password);
 
         if (userOptional.isPresent()) {
             final HttpSession session = request.getSession();
-            session.setAttribute("user", userOptional.get());
-            logger.info("Successfully logged Username: '{}' Password: '{}'", username, password);
-            response.sendRedirect("/Servlet_Hibernate_project_war_exploded/user/UserPage.jsp");
+            final User user = userOptional.get();
+            session.setAttribute("user", user);
+            log.info("Successfully logged user: '{}'", user.getUsername());
+            response.sendRedirect("../user/UserPage.jsp");
         } else {
-            logger.warn("Failed to log in Username: '{}' Password: '{}'", username, password);
+            log.warn("Failed to log in user with login data: \nLogin: '{}' \nPassword: '{}'", login, password);
             response.sendRedirect("login.jsp");
         }
     }

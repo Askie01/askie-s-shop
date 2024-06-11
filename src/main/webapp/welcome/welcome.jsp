@@ -13,8 +13,8 @@
     <h1>Welcome!</h1>
 
     <div class="buttons">
-        <a href="/Servlet_Hibernate_project_war_exploded/login/login.jsp" class="button">Login</a>
-        <a href="/Servlet_Hibernate_project_war_exploded/register/register.jsp" class="button">Registration</a>
+        <a href="../login/login.jsp" class="button">Login</a>
+        <a href="../register/register.jsp" class="button">Registration</a>
     </div>
 </div>
 </body>
