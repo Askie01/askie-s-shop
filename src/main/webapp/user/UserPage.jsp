@@ -1,33 +1,30 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User page</title>
+    <title>User Information</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="user-page">
-    <header class="header">
-        <div class="profile-pic">
-            <img src="https://via.placeholder.com/150" alt="Zdjęcie Profilowe">
+<div class="background"></div>
+<div class="content">
+    <div class="user-info">
+        <div class="profile-picture">
+            <img src="https://via.placeholder.com/150" alt="Profile picture">
         </div>
-        <h1 class="username">Username</h1>
-    </header>
-    <section class="user-info">
-        <h2>User information</h2>
+        <h1 class="username">User information</h1>
         <p><strong>First name:</strong> ${user.getFirstName()}</p>
         <p><strong>Last name:</strong> ${user.getLastName()}</p>
         <p><strong>Email:</strong> ${user.getEmail()}</p>
         <p><strong>Phone:</strong> ${user.getPhone()}</p>
         <p><strong>Birthdate:</strong> ${user.getBirthdate()}</p>
-    </section>
-    <section class="actions">
-        <button class="action-button">List product</button>
-        <button class="action-button">Explore products</button>
-        <button class="action-button">Log out</button>
-    </section>
+    </div>
+    <div class="buttons">
+        <input type="button" value="List products" onclick="location.href='list_products.html'">
+        <input type="button" value="Explore products" onclick="location.href='explore_products.html'">
+        <input type="button" value="Log out" onclick="location.href='logout.html'">
+    </div>
 </div>
 </body>
 </html>
