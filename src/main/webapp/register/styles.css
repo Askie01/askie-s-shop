@@ -1,4 +1,3 @@
-/* Ustawienie box-sizing: border-box dla wszystkich elementów */
 *,
 *::before,
 *::after {
@@ -90,8 +89,8 @@ body {
 }
 
 #password {
-    -webkit-text-security: disc; /* For Safari */
-    text-security: disc; /* For others that support it */
+    -webkit-text-security: disc;
+    text-security: disc;
 }
 
 .button {
