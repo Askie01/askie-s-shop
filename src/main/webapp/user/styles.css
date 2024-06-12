@@ -77,7 +77,7 @@ body {
     margin-top: 20px;
 }
 
-.buttons input[type="button"] {
+.buttons input[type="submit"] {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;

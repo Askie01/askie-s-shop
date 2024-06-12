@@ -21,9 +21,17 @@
         <p><strong>Birthdate:</strong> ${user.getBirthdate()}</p>
     </div>
     <div class="buttons">
-        <input type="button" value="List products" onclick="location.href='list_products.html'">
-        <input type="button" value="Explore products" onclick="location.href='explore_products.html'">
-        <input type="button" value="Log out" onclick="location.href='logout.html'">
+        <form action="list_products">
+            <input type="submit" value="List products" onclick="location.href='list_products'">
+        </form>
+
+        <form action="explore_products">
+            <input type="submit" value="Explore products" onclick="location.href='explore_products'">
+        </form>
+
+        <form action="logout" method="post">
+            <input type="submit" value="Logout" onclick="location.href='logout'">
+        </form>
     </div>
 </div>
 </body>

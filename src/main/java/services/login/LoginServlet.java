@@ -26,16 +26,16 @@ public class LoginServlet extends HttpServlet {
             final User user = userOptional.get();
             session.setAttribute("user", user);
             log.info("Successfully logged user: '{}'", user.getUsername());
-            response.sendRedirect("../user/UserPage.jsp");
+            response.sendRedirect("../user/user_page.jsp");
         } else {
             log.warn("Failed to log in user with login data: \nLogin: '{}' \nPassword: '{}'", login, password);
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login_page.jsp");
         }
     }
 
     @SneakyThrows
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("login_page.jsp");
     }
 
 }

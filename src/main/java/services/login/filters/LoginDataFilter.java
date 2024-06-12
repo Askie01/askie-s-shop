@@ -31,7 +31,7 @@ public class LoginDataFilter implements Filter {
         } else {
             log.warn("Received invalid login data: \nLogin: '{}' \nPassword: '{}'", login, password);
             final HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("login.jsp");
+            httpResponse.sendRedirect("login_page.jsp");
         }
     }
 }

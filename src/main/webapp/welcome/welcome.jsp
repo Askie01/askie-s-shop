@@ -13,8 +13,8 @@
     <h1>Welcome!</h1>
 
     <div class="buttons">
-        <a href="../login/login.jsp" class="button">Login</a>
-        <a href="../register/register.jsp" class="button">Registration</a>
+        <a href="../login/login_page.jsp" class="button">Login</a>
+        <a href="../register/registration_page.jsp" class="button">Registration</a>
     </div>
 </div>
 </body>

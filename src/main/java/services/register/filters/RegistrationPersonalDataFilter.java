@@ -30,7 +30,7 @@ public class RegistrationPersonalDataFilter implements Filter {
         } else {
             log.warn("Received an invalid personal data for '{}'", username);
             final HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("register.jsp");
+            httpResponse.sendRedirect("registration_page.jsp");
         }
     }
 }

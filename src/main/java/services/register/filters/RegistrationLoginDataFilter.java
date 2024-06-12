@@ -26,7 +26,7 @@ public class RegistrationLoginDataFilter implements Filter {
         } else {
             log.warn("Received invalid login data. \nLogin: '{}' \npassword: '{}'", login, password);
             final HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("register.jsp");
+            httpResponse.sendRedirect("registration_page.jsp");
         }
     }
 }

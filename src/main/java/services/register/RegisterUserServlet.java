@@ -35,17 +35,17 @@ public class RegisterUserServlet extends HttpServlet {
             repository.save(user);
             log.info("Successfully registered user: '{}'", username);
             request.setAttribute("successfulRegistration", true);
-            request.getRequestDispatcher("successful_registration.jsp")
+            request.getRequestDispatcher("successful_registration_page.jsp")
                     .forward(request, response);
 
         } else {
             log.warn("User already exists: '{}'.", username);
-            response.sendRedirect("register.jsp");
+            response.sendRedirect("registration_page.jsp");
         }
     }
 
     @SneakyThrows
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.sendRedirect("register.jsp");
+        response.sendRedirect("registration_page.jsp");
     }
 }

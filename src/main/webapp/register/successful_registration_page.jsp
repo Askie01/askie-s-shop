@@ -11,14 +11,14 @@
     final Object successfulRegistration = request.getAttribute("successfulRegistration");
 
     if (successfulRegistration == null) {
-        response.sendRedirect("register.jsp");
+        response.sendRedirect("registration_page.jsp");
     }
 %>
 <div class="background"></div>
 <div class="content">
     <h1>Your account has been created!</h1>
     <p>Click the link below to log in</p>
-    <a href="../login/login.jsp" class="button">Log in</a>
+    <a href="../login/login_page.jsp" class="button">Log in</a>
 </div>
 </body>
 </html>
