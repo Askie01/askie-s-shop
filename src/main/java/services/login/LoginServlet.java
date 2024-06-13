@@ -10,7 +10,7 @@ import users.User;
 
 import java.util.Optional;
 
-@WebServlet("/login/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private final Logger log = LogManager.getLogger(LoginServlet.class.getName());
 
@@ -26,7 +26,7 @@ public class LoginServlet extends HttpServlet {
             final User user = userOptional.get();
             session.setAttribute("user", user);
             log.info("Successfully logged user: '{}'", user.getUsername());
-            response.sendRedirect("../user/user_page.jsp");
+            response.sendRedirect("user_page.jsp");
         } else {
             log.warn("Failed to log in user with login data: \nLogin: '{}' \nPassword: '{}'", login, password);
             response.sendRedirect("login_page.jsp");

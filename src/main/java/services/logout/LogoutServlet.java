@@ -7,18 +7,17 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.SneakyThrows;
 
-@WebServlet("/user/logout")
+@WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
     @SneakyThrows
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         final HttpSession session = request.getSession();
-//        session.removeAttribute("user");
         session.invalidate();
-        response.sendRedirect("../welcome/welcome.jsp");
+        response.sendRedirect("welcome_page.jsp");
     }
 
     @SneakyThrows
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.sendRedirect("../login/login_page.jsp");
+        response.sendRedirect("login_page.jsp");
     }
 }

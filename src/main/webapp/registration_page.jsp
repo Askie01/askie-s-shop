@@ -12,7 +12,7 @@
 <div class="content">
     <h1>Registration</h1>
 
-    <div class="register-form">
+    <div class="input-form">
         <form action="register" method="post">
             <div class="input-group">
                 <label for="login">LOGIN</label>

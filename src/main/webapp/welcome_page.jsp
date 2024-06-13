@@ -9,12 +9,12 @@
 </head>
 <body>
 <div class="background"></div>
-<div class="content">
+<div class="welcome-content">
     <h1>Welcome!</h1>
 
-    <div class="buttons">
-        <a href="../login/login_page.jsp" class="button">Login</a>
-        <a href="../register/registration_page.jsp" class="button">Registration</a>
+    <div class="welcome-buttons">
+        <a href="login_page.jsp" class="welcome-button">Login</a>
+        <a href="registration_page.jsp" class="welcome-button">Registration</a>
     </div>
 </div>
 </body>

@@ -1,4 +1,4 @@
-package context.listeners;
+package listeners;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import jakarta.servlet.ServletContextEvent;

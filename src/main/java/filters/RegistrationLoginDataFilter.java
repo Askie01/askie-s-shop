@@ -1,4 +1,4 @@
-package services.register.filters;
+package filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import validators.UserValidator;
 
-@WebFilter("/register/register")
+@WebFilter("/register")
 public class RegistrationLoginDataFilter implements Filter {
     private final Logger log = LogManager.getLogger(RegistrationLoginDataFilter.class.getName());
 

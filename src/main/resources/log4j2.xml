@@ -70,11 +70,11 @@
 
         <!--        File loggers-->
 
-        <Logger name="services.register.filters.RegistrationLoginDataFilter" level="info" additivity="false">
+        <Logger name="filters.RegistrationLoginDataFilter" level="info" additivity="false">
             <AppenderRef ref="RegistrationLoginDataFilterFile"/>
         </Logger>
 
-        <Logger name="services.register.filters.RegistrationPersonalDataFilter" level="info" additivity="false">
+        <Logger name="filters.RegistrationPersonalDataFilter" level="info" additivity="false">
             <AppenderRef ref="RegistrationPersonalDataFilterFile"/>
         </Logger>
 
@@ -82,7 +82,7 @@
             <AppenderRef ref="RegisterUserServletFile"/>
         </Logger>
 
-        <Logger name="services.login.filters.LoginDataFilter" level="info" additivity="false">
+        <Logger name="filters.LoginDataFilter" level="info" additivity="false">
             <AppenderRef ref="LoginDataFilterFile"/>
         </Logger>
 

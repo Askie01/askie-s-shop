@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="background"></div>
-<div class="content">
+<div class="user-content">
     <div class="user-info">
         <div class="profile-picture">
             <img src="https://via.placeholder.com/150" alt="Profile picture">
@@ -27,6 +27,10 @@
 
         <form action="explore_products">
             <input type="submit" value="Explore products" onclick="location.href='explore_products'">
+        </form>
+
+        <form action="edit_account" method="post">
+            <input type="submit" value="Edit account" onclick="location.href='edit_account'">
         </form>
 
         <form action="logout" method="post">

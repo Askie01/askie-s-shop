@@ -18,7 +18,7 @@
 <div class="content">
     <h1>Your account has been created!</h1>
     <p>Click the link below to log in</p>
-    <a href="../login/login_page.jsp" class="button">Log in</a>
+    <a href="login_page.jsp" class="button">Log in</a>
 </div>
 </body>
 </html>

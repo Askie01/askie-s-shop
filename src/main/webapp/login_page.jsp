@@ -12,7 +12,7 @@
 <div class="content">
     <h1>Login</h1>
 
-    <div class="login-form">
+    <div class="input-form">
         <form action="login" method="post">
             <div class="input-group">
                 <label for="login">LOGIN</label>

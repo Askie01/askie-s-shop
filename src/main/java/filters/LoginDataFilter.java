@@ -1,4 +1,4 @@
-package services.login.filters;
+package filters;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;

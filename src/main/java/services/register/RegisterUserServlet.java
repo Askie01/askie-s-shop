@@ -11,7 +11,7 @@ import users.User;
 import java.time.LocalDate;
 import java.util.Optional;
 
-@WebServlet("/register/register")
+@WebServlet("/register")
 public class RegisterUserServlet extends HttpServlet {
     private final Logger log = LogManager.getLogger(RegisterUserServlet.class.getName());
 
