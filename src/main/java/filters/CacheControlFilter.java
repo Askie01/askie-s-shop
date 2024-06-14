@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
-@WebFilter({"/user_page.jsp", "/list_products", "/explore_products"})
+@WebFilter({"/user_page.jsp", "/list_products.jsp", "/explore_products.jsp", "/edit_account.jsp"})
 public class CacheControlFilter implements Filter {
 
     @Override

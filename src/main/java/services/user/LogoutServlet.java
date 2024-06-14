@@ -1,4 +1,4 @@
-package services.logout;
+package services.user;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
