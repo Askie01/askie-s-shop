@@ -11,7 +11,7 @@
 <div class="user-content">
     <div class="user-info">
         <div class="profile-picture">
-            <img src="https://via.placeholder.com/150" alt="Profile picture">
+            <img src=${user.getImage()}, alt="Profile picture">
         </div>
         <h1 class="username">User information</h1>
         <p><strong>First name:</strong> ${user.getFirstName()}</p>
@@ -22,19 +22,19 @@
     </div>
     <div class="buttons">
         <form action="list_products">
-            <input type="submit" value="List products" onclick="location.href='list_products'">
+            <input type="submit" value="List products" onclick="location.href='list_products.jsp'">
         </form>
 
         <form action="explore_products">
-            <input type="submit" value="Explore products" onclick="location.href='explore_products'">
+            <input type="submit" value="Explore products" onclick="location.href='explore_products.jsp'">
         </form>
 
         <form action="edit_account" method="post">
-            <input type="submit" value="Edit account" onclick="location.href='edit_account'">
+            <input type="submit" value="Edit account" onclick="location.href='edit_account.jsp'">
         </form>
 
         <form action="logout" method="post">
-            <input type="submit" value="Logout" onclick="location.href='logout'">
+            <input type="submit" value="Logout" onclick="location.href='logout.jsp'">
         </form>
     </div>
 </div>
