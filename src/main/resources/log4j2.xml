@@ -25,7 +25,7 @@
         </File>
 
         <File name="LoginDataFilterFile"
-              filename="${sys:LOG_PATH}/LoginDataFiler.log">
+              filename="${sys:LOG_PATH}/LoginDataFilter.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
@@ -74,43 +74,43 @@
             <AppenderRef ref="RegistrationLoginDataFilterFile"/>
         </Logger>
 
-        <Logger name="filters.RegistrationPersonalDataFilter" level="info" additivity="false">
+        <Logger name="com.askie01filters.RegistrationPersonalDataFilter" level="info" additivity="false">
             <AppenderRef ref="RegistrationPersonalDataFilterFile"/>
         </Logger>
 
-        <Logger name="services.register.RegisterUserServlet" level="info" additivity="false">
+        <Logger name="com.askie01.services.register.RegisterUserServlet" level="info" additivity="false">
             <AppenderRef ref="RegisterUserServletFile"/>
         </Logger>
 
-        <Logger name="filters.LoginDataFilter" level="info" additivity="false">
+        <Logger name="com.askie01.filters.LoginDataFilter" level="info" additivity="false">
             <AppenderRef ref="LoginDataFilterFile"/>
         </Logger>
 
-        <Logger name="services.login.LoginServlet" level="info" additivity="false">
+        <Logger name="com.askie01.services.login.LoginServlet" level="info" additivity="false">
             <AppenderRef ref="LoginServletFile"/>
         </Logger>
 
-        <Logger name="repositories.UserRepository" level="info" additivity="false">
+        <Logger name="com.askie01.repositories.UserRepository" level="info" additivity="false">
             <AppenderRef ref="UserRepositoryFile"/>
         </Logger>
 
-        <Logger name="repositories.ProductRepository" level="info" additivity="false">
+        <Logger name="com.askie01.repositories.ProductRepository" level="info" additivity="false">
             <AppenderRef ref="ProductRepositoryFile"/>
         </Logger>
 
-        <Logger name="validators.LoginDataValidator" level="info" additivity="false">
+        <Logger name="com.askie01.validators.LoginDataValidator" level="info" additivity="false">
             <AppenderRef ref="LoginDataValidatorFile"/>
         </Logger>
 
-        <Logger name="validators.PersonalDataValidator" level="info" additivity="false">
+        <Logger name="com.askie01.validators.PersonalDataValidator" level="info" additivity="false">
             <AppenderRef ref="PersonalDataValidatorFile"/>
         </Logger>
 
-        <Logger name="validators.DateValidator" level="info" additivity="false">
+        <Logger name="com.askie01.validators.DateValidator" level="info" additivity="false">
             <AppenderRef ref="DateValidatorFile"/>
         </Logger>
 
-        <Logger name="validators.UserValidator" level="info" additivity="false">
+        <Logger name="com.askie01.validators.UserValidator" level="info" additivity="false">
             <AppenderRef ref="UserValidatorFile"/>
         </Logger>
 

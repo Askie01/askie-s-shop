@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 <div class="background"></div>
@@ -13,8 +13,8 @@
     <h1>Welcome!</h1>
 
     <div class="welcome-buttons">
-        <a href="login_page.jsp" class="welcome-button">Login</a>
-        <a href="registration_page.jsp" class="welcome-button">Registration</a>
+        <a href="../login/login_page.jsp" class="welcome-button">Login</a>
+        <a href="../registration/registration_page.jsp" class="welcome-button">Registration</a>
     </div>
 </div>
 </body>

@@ -12,7 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.askie01.validators.UserValidator;
 
-@WebFilter("/login")
+@WebFilter("/login/login")
 public class LoginDataFilter implements Filter {
     private final Logger log = LogManager.getLogger(LoginDataFilter.class.getName());
 
