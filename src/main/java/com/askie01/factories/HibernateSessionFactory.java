@@ -8,22 +8,48 @@ import org.hibernate.service.ServiceRegistry;
 import com.askie01.products.Product;
 import com.askie01.users.User;
 
-@Getter
 public class HibernateSessionFactory {
+    @Getter
     private final SessionFactory sessionFactory;
     private final String configurationFile;
 
-    public HibernateSessionFactory(String configurationFile) {
-        this.configurationFile = configurationFile;
-        this.sessionFactory = createSessionFactory(configurationFile);
+    public HibernateSessionFactory() {
+        this.configurationFile = "hibernate.cfg.xml";
+        final Configuration config = createDefaultConfiguration();
+        this.sessionFactory = createSessionFactory(config);
     }
 
-    private SessionFactory createSessionFactory(String configurationFile) {
-        final Configuration config = new Configuration()
+    public HibernateSessionFactory(Class... annotatedClasses) {
+        this.configurationFile = "hibernate.cfg.xml";
+        final Configuration config = createConfiguration(configurationFile, annotatedClasses);
+        this.sessionFactory = createSessionFactory(config);
+    }
+
+    public HibernateSessionFactory(String configurationFile, Class... annotatedClasses) {
+        this.configurationFile = configurationFile;
+        final Configuration config = createConfiguration(configurationFile, annotatedClasses);
+        this.sessionFactory = createSessionFactory(config);
+    }
+
+    private Configuration createDefaultConfiguration() {
+        return new Configuration()
                 .configure(configurationFile)
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Product.class);
+    }
 
+    private Configuration createConfiguration(String configurationFile, Class... annotatedClasses) {
+        Configuration config = new Configuration()
+                .configure(configurationFile);
+
+        for (Class annotatedClass : annotatedClasses) {
+            config = config.addAnnotatedClass(annotatedClass);
+        }
+
+        return config;
+    }
+
+    private SessionFactory createSessionFactory(Configuration config) {
         final ServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .applySettings(config.getProperties())
                 .build();
@@ -31,4 +57,3 @@ public class HibernateSessionFactory {
         return config.buildSessionFactory(registry);
     }
 }
-

@@ -9,58 +9,28 @@
 
         <!--        Files configuration-->
 
-        <File name="RegistrationLoginDataFilterFile"
-              filename="${sys:LOG_PATH}/RegistrationLoginDataFilter.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="RegistrationPersonalDataFilterFile"
-              filename="${sys:LOG_PATH}/RegistrationPersonalDataFilter.log">
+        <File name="RegistrationFilterFile"
+              filename="${sys:LOG_PATH}/registration_filter.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
         <File name="RegisterUserServletFile"
-              filename="${sys:LOG_PATH}/RegisterUserServlet.log">
+              filename="${sys:LOG_PATH}/register_user_servlet.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
-        <File name="LoginDataFilterFile"
-              filename="${sys:LOG_PATH}/LoginDataFilter.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="LoginServletFile"
-              filename="${sys:LOG_PATH}/LoginServlet.log">
+        <File name="LoginFilterFile"
+              filename="${sys:LOG_PATH}/login_filter.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
         <File name="UserRepositoryFile"
-              filename="${sys:LOG_PATH}/UserRepository.log">
+              filename="${sys:LOG_PATH}/user_repository.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
         <File name="ProductRepositoryFile"
-              filename="${sys:LOG_PATH}/ProductRepository.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="LoginDataValidatorFile"
-              filename="${sys:LOG_PATH}/LoginDataValidator.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="PersonalDataValidatorFile"
-              filename="${sys:LOG_PATH}/PersonalDataValidator.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="DateValidatorFile"
-              filename="${sys:LOG_PATH}/DateValidator.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="UserValidatorFile"
-              filename="${sys:LOG_PATH}/UserValidator.log">
+              filename="${sys:LOG_PATH}/product_repository.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
@@ -70,24 +40,16 @@
 
         <!--        File loggers-->
 
-        <Logger name="filters.RegistrationLoginDataFilter" level="info" additivity="false">
-            <AppenderRef ref="RegistrationLoginDataFilterFile"/>
+        <Logger name="com.askie01.filters.RegistrationFilter" level="info" additivity="false">
+            <AppenderRef ref="RegistrationFilterFile"/>
         </Logger>
 
-        <Logger name="com.askie01filters.RegistrationPersonalDataFilter" level="info" additivity="false">
-            <AppenderRef ref="RegistrationPersonalDataFilterFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.services.register.RegisterUserServlet" level="info" additivity="false">
+        <Logger name="com.askie01.services.registration.RegisterUserServlet" level="info" additivity="false">
             <AppenderRef ref="RegisterUserServletFile"/>
         </Logger>
 
-        <Logger name="com.askie01.filters.LoginDataFilter" level="info" additivity="false">
-            <AppenderRef ref="LoginDataFilterFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.services.login.LoginServlet" level="info" additivity="false">
-            <AppenderRef ref="LoginServletFile"/>
+        <Logger name="com.askie01.filters.LoginFilter" level="info" additivity="false">
+            <AppenderRef ref="LoginFilterFile"/>
         </Logger>
 
         <Logger name="com.askie01.repositories.UserRepository" level="info" additivity="false">
@@ -96,22 +58,6 @@
 
         <Logger name="com.askie01.repositories.ProductRepository" level="info" additivity="false">
             <AppenderRef ref="ProductRepositoryFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.validators.LoginDataValidator" level="info" additivity="false">
-            <AppenderRef ref="LoginDataValidatorFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.validators.PersonalDataValidator" level="info" additivity="false">
-            <AppenderRef ref="PersonalDataValidatorFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.validators.DateValidator" level="info" additivity="false">
-            <AppenderRef ref="DateValidatorFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.validators.UserValidator" level="info" additivity="false">
-            <AppenderRef ref="UserValidatorFile"/>
         </Logger>
 
         <!--        Root logger-->

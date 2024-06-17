@@ -13,4 +13,10 @@ public class ListProductsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
+
+    @Override
+    @SneakyThrows
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+
+    }
 }

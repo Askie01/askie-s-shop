@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Information</title>
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="../styles2.css">
 </head>
 <body>
 <div class="background"></div>
@@ -59,11 +59,11 @@
     </div>
 </div>
 <script>
-    document.getElementById('edit-photo').addEventListener('change', function(event) {
+    document.getElementById('edit-photo').addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('profile-img').src = e.target.result;
             }
             reader.readAsDataURL(file);

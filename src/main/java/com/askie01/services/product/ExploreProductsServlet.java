@@ -11,7 +11,13 @@ public class ExploreProductsServlet extends HttpServlet {
 
     @Override
     @SneakyThrows
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
+    @Override
+    @SneakyThrows
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 
     }
 }

@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account created!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 <%
-    final Object successfulRegistration = request.getAttribute("successfulRegistration");
+    final Object user = request.getAttribute("user");
 
-    if (successfulRegistration == null) {
-        response.sendRedirect("registration_page.jsp");
+    if (user == null) {
+        response.sendRedirect("registration.jsp");
     }
 %>
 <div class="background"></div>
 <div class="content">
     <h1>Your account has been created!</h1>
     <p>Click the link below to log in</p>
-    <a href="login_page.jsp" class="button">Log in</a>
+    <a href="../login/login.jsp" class="button">Log in</a>
 </div>
 </body>
 </html>

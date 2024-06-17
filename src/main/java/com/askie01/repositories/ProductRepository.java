@@ -14,22 +14,22 @@ public class ProductRepository {
     private final Logger log = LogManager.getLogger(ProductRepository.class.getName());
 
     public void save(Product product) {
-        final SessionFactory sessionFactory = new HibernateSessionFactory("hibernate.cfg.xml").getSessionFactory();
+        final SessionFactory sessionFactory = new HibernateSessionFactory().getSessionFactory();
         final Session session = sessionFactory.openSession();
         final Transaction transaction = session.beginTransaction();
         session.persist(product);
         transaction.commit();
-        log.info("Successfully saved product: '{}'", product);
+        log.info("Saved product: '{}'", product);
     }
 
-    public Optional<Product> find(int productId) {
-        final Product product = new HibernateSessionFactory("hibernate.cfg.xml")
+    public Optional<Product> get(int productId) {
+        final Product product = new HibernateSessionFactory()
                 .getSessionFactory()
                 .openSession()
                 .get(Product.class, productId);
 
         if (product == null) {
-            log.warn("Unfounded product id: '{}'.", productId);
+            log.warn("Product id: '{}' doesn't exist.", productId);
         } else {
             log.info("Found product: '{}'", product);
         }

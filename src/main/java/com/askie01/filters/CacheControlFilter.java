@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
-@WebFilter({"/user_page.jsp", "/list_products.jsp", "/explore_products.jsp", "/edit_account.jsp"})
+@WebFilter({"/user/user.jsp", "/user/list_products.jsp", "/user/explore_products.jsp", "/user/edit_account.jsp"})
 public class CacheControlFilter implements Filter {
 
     @Override
@@ -15,9 +15,10 @@ public class CacheControlFilter implements Filter {
         final HttpServletResponse httpResponse = (HttpServletResponse) response;
         final HttpServletRequest httpRequest = (HttpServletRequest) request;
         final Object user = httpRequest.getSession().getAttribute("user");
+        final boolean userExists = user != null;
 
-        if (user == null) {
-            httpResponse.sendRedirect("login_page.jsp");
+        if (!userExists) {
+            httpResponse.sendRedirect("../login/login.jsp");
         }
 
         httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
