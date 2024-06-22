@@ -24,8 +24,8 @@ public class UpdateUserServlet extends HttpServlet {
         final User user = (User) httpRequest.getSession().getAttribute("user");
 
         final String password = httpRequest.getParameter("password");
-        final String firstName = httpRequest.getParameter("firstName");
-        final String lastName = httpRequest.getParameter("lastName");
+        final String firstName = httpRequest.getParameter("first-name");
+        final String lastName = httpRequest.getParameter("last-name");
         final String email = httpRequest.getParameter("email");
         final String phone = httpRequest.getParameter("phone");
         final String birthdate = httpRequest.getParameter("birthdate");
