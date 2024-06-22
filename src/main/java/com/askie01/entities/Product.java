@@ -1,10 +1,10 @@
-package com.askie01.products;
+package com.askie01.entities;
 
+import com.askie01.products.ProductCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.askie01.users.User;
 
 import java.io.File;
 import java.util.List;

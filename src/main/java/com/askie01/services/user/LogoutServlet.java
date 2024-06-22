@@ -14,12 +14,6 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         final HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("../welcome/welcome.jsp");
-    }
-
-    @Override
-    @SneakyThrows
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.sendRedirect("../login/login.jsp");
+        response.sendRedirect("../home.jsp");
     }
 }

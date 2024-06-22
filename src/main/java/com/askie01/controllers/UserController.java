@@ -1,14 +1,15 @@
 package com.askie01.controllers;
 
 import com.askie01.factories.HibernateSessionFactory;
-import com.askie01.repositories.UserRepository;
-import com.askie01.users.User;
+import com.askie01.entities.User;
+import lombok.Cleanup;
 import org.hibernate.Session;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserController {
+
     public boolean registrable(User user) {
         return isValid(user) && isUnique(user);
     }
@@ -18,7 +19,7 @@ public class UserController {
         final String username = user.getUsername();
         final String email = user.getEmail();
         final String phone = user.getPhone();
-        final Session session = new HibernateSessionFactory()
+        @Cleanup final Session session = new HibernateSessionFactory()
                 .getSessionFactory()
                 .openSession();
 
@@ -45,37 +46,41 @@ public class UserController {
                 uniquePhone;
     }
 
-    private boolean isValid(User user) {
+    public boolean isValid(User user) {
         final String regex = "^[A-Z][a-zA-Z0-9]{3,25}";
+        final String usernameRegex = "^[A-Z][a-zA-Z0-9]{3,25}";
         final String emailRegex = "^[a-zA-Z0-9._-]{3,40}@[a-zA-Z.]{2,15}$";
         final String phoneRegex = "^[0-9]{9}$";
 
-        final boolean loginMatches = user.getLogin().matches(regex);
-        final boolean passwordMatches = user.getPassword().matches(regex);
-        final boolean usernameMatches = user.getUsername().matches(regex);
-        final boolean firstNameMatches = user.getFirstName().matches(regex);
-        final boolean lastNameMatches = user.getLastName().matches(regex);
-        final boolean emailMatches = user.getEmail().matches(emailRegex);
-        final boolean phoneMatches = user.getPhone().matches(phoneRegex);
-        final boolean isValidBirthdate = isValid(user.getBirthdate().toString());
+        final String login = user.getLogin();
+        final String password = user.getPassword();
+        final String username = user.getUsername();
+        final String firstName = user.getFirstName();
+        final String lastName = user.getLastName();
+        final String email = user.getEmail();
+        final String phone = user.getPhone();
+        final String birthdate = user.getBirthdate().toString();
 
-        return loginMatches &&
-                passwordMatches &&
-                usernameMatches &&
-                firstNameMatches &&
-                lastNameMatches &&
-                emailMatches &&
-                phoneMatches &&
-                isValidBirthdate;
+        final boolean validLogin = login.matches(regex);
+        final boolean validPassword = password.matches(regex);
+        final boolean validUsername = username.matches(usernameRegex);
+        final boolean validFirstName = firstName.matches(regex);
+        final boolean validLastName = lastName.matches(regex);
+        final boolean validBirthdate = isValid(birthdate);
+        final boolean validEmail = email.matches(emailRegex);
+        final boolean validPhone = phone.matches(phoneRegex);
+
+        return validLogin &&
+                validPassword &&
+                validUsername &&
+                validFirstName &&
+                validLastName &&
+                validBirthdate &&
+                validEmail &&
+                validPhone;
     }
 
-    public boolean exists(String login, String password) {
-        return new UserRepository()
-                .get(login, password)
-                .isPresent();
-    }
-
-    private boolean isValid(String date) {
+    public boolean isValid(String date) {
         final String regex = "^(\\d{4})-(\\d{2})-(\\d{2})$";
         final Pattern pattern = Pattern.compile(regex);
         final Matcher matcher = pattern.matcher(date);

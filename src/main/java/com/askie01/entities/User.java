@@ -1,10 +1,8 @@
-package com.askie01.users;
+package com.askie01.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import com.askie01.products.Product;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,28 +10,32 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "unique_login", columnNames = "login"),
-                @UniqueConstraint(name = "unique_username", columnNames = "username"),
-                @UniqueConstraint(name = "unique_email", columnNames = "email"),
-                @UniqueConstraint(name = "unique_phone", columnNames = "phone")
-        }
-)
+@Table(name = "users")
 @NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
+
+    @Column(unique = true, nullable = false)
     private String login;
     private String password;
+
+    @Column(unique = true, nullable = false)
     private String username;
     private String firstName;
     private String lastName;
+
+    @Column(unique = true, nullable = false)
     private String email;
+
+    @Column(unique = true, nullable = false)
     private String phone;
     private LocalDate birthdate;
-    private File image; //  This should be replaced with a "default" photo from database.
+
+    @Lob
+    @Column(name = "profile_picture")
+    private byte[] profilePicture;
 
     @ManyToMany(mappedBy = "consumers", cascade = CascadeType.ALL)
     private final List<Product> shoppingCard = new ArrayList<>();
@@ -50,6 +52,19 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.birthdate = birthdate;
+    }
+
+    public User(User user) {
+        this.userId = user.userId;
+        this.login = user.login;
+        this.password = user.password;
+        this.username = user.username;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.email = user.email;
+        this.phone = user.phone;
+        this.birthdate = user.birthdate;
+        this.profilePicture = user.profilePicture;
     }
 
     @Override

@@ -5,8 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import com.askie01.products.Product;
-import com.askie01.users.User;
+import com.askie01.entities.Product;
+import com.askie01.entities.User;
 
 public class HibernateSessionFactory {
     @Getter

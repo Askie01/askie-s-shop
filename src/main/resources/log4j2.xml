@@ -9,8 +9,43 @@
 
         <!--        Files configuration-->
 
-        <File name="RegistrationFilterFile"
-              filename="${sys:LOG_PATH}/registration_filter.log">
+        <File name="LoginFilterFile"
+              filename="${sys:LOG_PATH}/login_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="PasswordFilterFile"
+              filename="${sys:LOG_PATH}/password_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="UsernameFilter"
+              filename="${sys:LOG_PATH}/username_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="FirstNameFilter"
+              filename="${sys:LOG_PATH}/first_name_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="LastNameFilter"
+              filename="${sys:LOG_PATH}/last_name_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="BirthdateFilter"
+              filename="${sys:LOG_PATH}/birthdate_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="EmailFilter"
+              filename="${sys:LOG_PATH}/email_filter.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="PhoneFilter"
+              filename="${sys:LOG_PATH}/phone_filter.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
@@ -19,18 +54,13 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
-        <File name="LoginFilterFile"
-              filename="${sys:LOG_PATH}/login_filter.log">
+        <File name="LoginServletFile"
+              filename="${sys:LOG_PATH}/login_servlet.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
         <File name="UserRepositoryFile"
               filename="${sys:LOG_PATH}/user_repository.log">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
-
-        <File name="ProductRepositoryFile"
-              filename="${sys:LOG_PATH}/product_repository.log">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
@@ -40,24 +70,48 @@
 
         <!--        File loggers-->
 
-        <Logger name="com.askie01.filters.RegistrationFilter" level="info" additivity="false">
-            <AppenderRef ref="RegistrationFilterFile"/>
+        <Logger name="com.askie01.filters.users.LoginFilter" level="info" additivity="false">
+            <AppenderRef ref="LoginFilterFile"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.PasswordFilter" level="info" additivity="false">
+            <AppenderRef ref="PasswordFilterFile"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.UsernameFilter" level="info" additivity="false">
+            <AppenderRef ref="UsernameFilterFile"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.FirstNameFilter" level="info" additivity="false">
+            <AppenderRef ref="FirstNameFilterFile"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.LastNameFilter" level="info" additivity="false">
+            <AppenderRef ref="LastNameFilterFile"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.BirthdateFilter" level="info" additivity="false">
+            <AppenderRef ref="BirthdateFileFilter"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.EmailFilter" level="info" additivity="false">
+            <AppenderRef ref="EmailFilterFile"/>
+        </Logger>
+
+        <Logger name="com.askie01.filters.users.PhoneFilter" level="info" additivity="false">
+            <AppenderRef ref="PhoneFilterFile"/>
         </Logger>
 
         <Logger name="com.askie01.services.registration.RegisterUserServlet" level="info" additivity="false">
             <AppenderRef ref="RegisterUserServletFile"/>
         </Logger>
 
-        <Logger name="com.askie01.filters.LoginFilter" level="info" additivity="false">
-            <AppenderRef ref="LoginFilterFile"/>
+        <Logger name="com.askie01.services.login.LoginServlet" level="info" additivity="false">
+            <AppenderRef ref="LoginServletFile"/>
         </Logger>
 
         <Logger name="com.askie01.repositories.UserRepository" level="info" additivity="false">
             <AppenderRef ref="UserRepositoryFile"/>
-        </Logger>
-
-        <Logger name="com.askie01.repositories.ProductRepository" level="info" additivity="false">
-            <AppenderRef ref="ProductRepositoryFile"/>
         </Logger>
 
         <!--        Root logger-->

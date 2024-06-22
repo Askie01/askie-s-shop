@@ -1,4 +1,4 @@
-package com.askie01.filters;
+package com.askie01.filters.cache;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -6,9 +6,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
-@WebFilter({"/user/user.jsp", "/user/list_products.jsp", "/user/explore_products.jsp", "/user/edit_account.jsp"})
-public class CacheControlFilter implements Filter {
-
+@WebFilter({"/user/account.jsp", "/user/edit_account.jsp", "/user/list_products.jsp", "/user/purchase_history.jsp", "/user/sales_history.jsp"})
+public class UserCacheControlFilter implements Filter {
     @Override
     @SneakyThrows
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) {
@@ -18,7 +17,7 @@ public class CacheControlFilter implements Filter {
         final boolean userExists = user != null;
 
         if (!userExists) {
-            httpResponse.sendRedirect("../login/login.jsp");
+            httpResponse.sendRedirect("../home.jsp");
         }
 
         httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");

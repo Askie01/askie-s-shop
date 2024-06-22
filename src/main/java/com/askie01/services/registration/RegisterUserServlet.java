@@ -7,9 +7,11 @@ import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.askie01.repositories.UserRepository;
-import com.askie01.users.User;
+import com.askie01.entities.User;
 
-@WebServlet("/registration/register")
+import java.time.LocalDate;
+
+@WebServlet("/registration/register_user")
 public class RegisterUserServlet extends HttpServlet {
     private final Logger log = LogManager.getLogger(RegisterUserServlet.class.getName());
 
@@ -17,26 +19,26 @@ public class RegisterUserServlet extends HttpServlet {
     @SneakyThrows
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         final UserRepository repository = new UserRepository();
-        System.out.println(request.getAttribute("user"));
-        final User user = (User) request.getAttribute("user");
-        final String login = user.getLogin();
-        final String password = user.getPassword();
-        final boolean userExists = new UserController()
-                .exists(login, password);
 
-        if (userExists) {
-            log.warn("'{}' already exists.", user);
-            response.sendRedirect("registration.jsp");
-        } else {
+        final String login = request.getParameter("login");
+        final String password = request.getParameter("password");
+        final String username = request.getParameter("username");
+        final String firstName = request.getParameter("first-name");
+        final String lastName = request.getParameter("last-name");
+        final String email = request.getParameter("email");
+        final String phone = request.getParameter("phone");
+        final LocalDate birthdate = LocalDate.parse(request.getParameter("birthdate"));
+
+        final User user = new User(login, password, username, firstName, lastName, email, phone, birthdate);
+        final boolean registrable = new UserController().registrable(user);
+
+        if (registrable) {
             repository.save(user);
             log.info("Registered: '{}'", user);
-            request.getRequestDispatcher("successful_registration.jsp")
-                    .forward(request, response);
+            response.sendRedirect("../login/login.jsp");
+        } else {
+            log.warn("'{}' already exists.", user);
+            response.sendRedirect("user_registration.jsp");
         }
-    }
-
-    @SneakyThrows
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        response.sendRedirect("registration.jsp");
     }
 }
